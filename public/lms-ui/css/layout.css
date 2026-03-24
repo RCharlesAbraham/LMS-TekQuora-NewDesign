@@ -1,0 +1,410 @@
+/* ═══════════════════════════════════════════════════════════════
+   SHARED LAYOUT CSS — Header + Sidebar + Shell
+   This file ensures a consistent look across ALL dashboard pages.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── RESET & BASE ─── */
+html {
+    margin: 0;
+    padding: 0;
+    background: #f1f4f6;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f1f4f6;
+    min-height: 100vh;
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+/* ─── HEADER (TOP BAR) — matches account-new / dashboard shell ─── */
+header.shared-header,
+header.lms-ui-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    min-height: 74px;
+    height: auto;
+    z-index: 1000;
+    background: #fff;
+    padding: 0 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+    overflow: visible;
+    overflow-x: hidden;
+    flex-shrink: 0;
+}
+
+/* Class-only selector for backwards compatibility */
+.shared-header {
+    box-sizing: border-box;
+}
+
+header.shared-header .header-pill,
+header.lms-ui-header .header-pill {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-left .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-left .logo img {
+    height: 38px;
+}
+
+.cat-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 9px 16px;
+    border-radius: 25px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cat-dropdown:hover {
+    background: #e2e8f0;
+}
+
+/* Navbar uses .cat-pill (same look as .cat-dropdown) */
+.cat-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 9px 16px;
+    border-radius: 25px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.cat-pill:hover {
+    background: #e2e8f0;
+}
+
+.search-wrap {
+    position: relative;
+    width: 280px;
+}
+
+.search-wrap .search-icon-link {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    color: #94a3b8;
+    line-height: 0;
+}
+
+.search-wrap input {
+    width: 100%;
+    height: 40px;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 25px;
+    padding: 0 15px 0 50px;
+    font-size: 13.5px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Icon inside search (dashboard header: bare SVG; navbar: .search-icon-link) */
+.search-wrap svg {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.search-wrap .search-icon-link svg {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.h-icon-btn {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    text-decoration: none;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.h-icon-btn:hover {
+    color: #334155;
+}
+
+.notif-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: #f97316;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+
+.profile-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 15px 5px 5px;
+    border-radius: 35px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.profile-pill:hover {
+    background: #f1f5f9;
+}
+
+.avatar-head {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #94a3b8;
+}
+
+/* ─── SHELL (main layout wrapper) ─── */
+.shared-shell {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 25px;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 90px 30px 50px;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ─── SIDEBAR ─── */
+.shared-sidebar {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px 10px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+    align-self: start;
+}
+
+.shared-sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    transition: 0.2s;
+}
+
+.shared-sidebar .nav-link:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.shared-sidebar .nav-link.active {
+    background: #f1f5f9;
+    color: #003a70;
+    font-weight: 700;
+}
+
+.shared-sidebar .nav-link img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.7;
+}
+
+.shared-sidebar .nav-link.active img {
+    opacity: 1;
+}
+
+/* ─── MAIN CONTENT AREA ─── */
+.shared-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* ─── NEW MOBILE RESPONSIVE STUFF ─── */
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #475569;
+}
+
+@media (max-width: 768px) {
+    .shared-header {
+        padding: 5px 12px;
+    }
+    .mobile-toggle {
+        display: block;
+        padding: 5px;
+    }
+    .search-wrap,
+    .cat-dropdown,
+    .cat-pill {
+        display: none !important;
+    }
+    .header-pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+    .header-left {
+        gap: 12px;
+        flex-shrink: 0;
+    }
+    .header-right {
+        gap: 8px;
+        flex-shrink: 0;
+    }
+    .profile-pill {
+        padding: 4px;
+        background: none;
+        border: none;
+        width: 34px;
+        height: 34px;
+        justify-content: center;
+    }
+    .profile-pill span, .profile-pill svg:last-child {
+        display: none !important;
+    }
+    .avatar-head {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    .h-icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+    .h-icon-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    .shared-shell {
+        grid-template-columns: 1fr;
+        padding: 70px 15px 30px;
+    }
+    .shared-sidebar {
+        display: none; /* Hide desktop sidebar on mobile */
+    }
+    .shared-sidebar.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100vh;
+        z-index: 2000;
+        border-radius: 0;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        padding-top: 60px;
+    }
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 1999;
+    }
+    .sidebar-overlay.active {
+        display: block;
+    }
+}
+
+/* When auth layout.css + style.css both load: keep flat bar, not double-rounded pill */
+header.shared-header .header-pill,
+header.lms-ui-header .header-pill {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}

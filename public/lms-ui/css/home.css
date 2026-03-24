@@ -72,11 +72,57 @@ img {
     box-sizing: border-box;
 }
 
+/* Top bar only — avoids a huge empty gap between search and right icons */
+body.home-page .glass-header .header-left {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 20px);
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+body.home-page .glass-header .header-left > a:first-of-type,
+body.home-page .glass-header .category-btn {
+    flex-shrink: 0;
+}
+
+body.home-page .glass-header .search-box {
+    flex: 1 1 auto;
+    min-width: 140px;
+    max-width: min(640px, 100%);
+    width: auto !important;
+}
+
+body.home-page .glass-header .header-right {
+    flex-shrink: 0;
+    gap: clamp(10px, 1.5vw, 22px);
+}
+
+body.home-page .glass-header {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 12px clamp(20px, 4vw, 48px) !important;
+    box-shadow: 0 1px 0 #e2e8f0, 0 2px 12px rgba(15, 23, 42, 0.06) !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    z-index: 1000 !important;
+    box-sizing: border-box;
+}
+
+body.home-page .glass-header.scrolled {
+    padding: 10px clamp(20px, 4vw, 48px) !important;
+    box-shadow: 0 1px 0 #e2e8f0, 0 4px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
 .header-left {
     display: flex;
     align-items: center;
     gap: 24px;
-    flex: 1;
 }
 
 .logo {
@@ -447,7 +493,8 @@ img {
 /* HERO SECTION STYLES */
 .hero-step-1-wrapper {
     background-color: #eef2f5;
-    padding: 120px 40px 60px 40px;
+    /* Header is sticky in-flow; only section spacing below the bar */
+    padding: 32px 40px 60px 40px;
     display: flex;
     justify-content: center;
 }
@@ -1527,9 +1574,13 @@ img {
 
     /* Header Responsive */
     .glass-header {
-        padding: 12px 24px !important;
+        padding: 12px 20px !important;
         justify-content: space-between !important;
-        width: 90% !important;
+        width: 100% !important;
+    }
+
+    body.home-page .glass-header .search-box {
+        max-width: 100%;
     }
 
     .wide-range-section {
@@ -1565,7 +1616,7 @@ img {
 
     /* Hero Section Responsive */
     .hero-step-1-wrapper {
-        padding: 120px 24px 40px !important;
+        padding: 24px 24px 40px !important;
     }
 
     .hero-step-1-container {

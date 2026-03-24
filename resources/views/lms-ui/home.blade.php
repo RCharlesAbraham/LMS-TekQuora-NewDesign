@@ -25,10 +25,8 @@
             transition: all 0.3s ease;
         }
         .glass-header.scrolled {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            padding: 8px 30px;
         }
         .home-lang-switch {
             display: flex;

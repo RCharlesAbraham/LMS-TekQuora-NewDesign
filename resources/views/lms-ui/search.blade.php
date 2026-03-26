@@ -206,7 +206,7 @@
 
             <div class="course-grid">
                 @for ($i = 0; $i < 6; $i++)
-                <a href="{{ route('lms.course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
+                <a href="{{ route('course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
                     <div class="thumb-wrap">
                         <img src="{{ asset('lms-ui/images/learning.png') }}" alt="Course">
                         <span class="badge-free">Free</span>

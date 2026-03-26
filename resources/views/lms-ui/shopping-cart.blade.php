@@ -329,7 +329,7 @@
                             <span class="total-value">$0</span>
                         </div>
                     </div>
-                    <button type="button" class="btn-checkout" onclick="window.location.href='{{ route('lms.payment.method') }}'">{{ __('lms_ui::cart.checkout') }}</button>
+                    <button type="button" class="btn-checkout" onclick="window.location.href='{{ route('payment.method') }}'">{{ __('lms_ui::cart.checkout') }}</button>
                 </div>
             </div>
         </main>

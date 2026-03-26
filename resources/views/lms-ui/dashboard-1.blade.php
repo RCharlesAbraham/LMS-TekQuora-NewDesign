@@ -574,7 +574,7 @@
                 <!-- <div class="side-col">
                     <div class="section-card">
                         <div class="section-header">Courses</div>
-                        <a href="{{ route('lms.course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
+                        <a href="{{ route('course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
                             <div class="course-circ"></div>
                             <div class="course-body">
                                 <h4>Veterinary Nursing Assistant Course</h4>
@@ -585,7 +585,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="{{ route('lms.course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
+                        <a href="{{ route('course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
                             <div class="course-circ"></div>
                             <div class="course-body">
                                 <h4>Building a Sustainable Startup</h4>
@@ -596,7 +596,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="{{ route('lms.course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
+                        <a href="{{ route('course.detail') }}" class="course-card" style="text-decoration:none; color:inherit;">
                             <div class="course-circ"></div>
                             <div class="course-body">
                                 <h4>Rajamangala Identity Course</h4>

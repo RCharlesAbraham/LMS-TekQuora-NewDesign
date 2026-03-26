@@ -283,7 +283,7 @@
 
                 <!-- <div class="grid">
                     @for($i = 0; $i < 4; $i++)
-                    <a href="{{ route('lms.learning.p2') }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('learning.p2') }}" style="text-decoration: none; color: inherit;">
                         <div class="course-wrap">
                             <div class="course-card">
                                 <div class="cc-header">

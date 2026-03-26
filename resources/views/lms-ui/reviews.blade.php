@@ -27,29 +27,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        header { 
-            background: #fff; 
-            height: 74px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
-            padding: 0 30px;
-        }
-        .header-pill { width: 100%; max-width: 1440px; display: flex; align-items: center; justify-content: space-between; }
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo img { height: 38px; }
-        .search-wrap { position: relative; width: 280px; }
-        .search-wrap input { width: 100%; height: 42px; background: #f1f5f9; border: none; border-radius: 25px; padding: 0 15px 0 40px; font-size: 13.5px; outline: none; }
-        .search-wrap svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
-        .header-right { display: flex; align-items: center; gap: 15px; }
-        .h-icon-btn { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: #64748b; text-decoration: none; position: relative; }
-        .profile-pill { display: flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 35px; background: #f8fafc; border: 1px solid #e2e8f0; color: #1e293b; font-weight: 600; font-size: 13.5px; text-decoration: none; }
-        .avatar-head { width: 32px; height: 32px; border-radius: 50%; background: #94a3b8; }
-
         .wrapper { display: grid; grid-template-columns: 240px 1fr; gap: 30px; max-width: 1440px; margin: 0 auto; padding: 100px 30px 40px; }
         .sidebar { background: #fff; border-radius: 24px; padding: 25px 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); position: sticky; top: 100px; height: fit-content; grid-row: 1/span 2; }
         .nav-link { display: flex; align-items: center; gap: 14px; padding: 12px 18px; border-radius: 14px; text-decoration: none; color: #64748b; font-size: 14px; font-weight: 500; margin-bottom: 4px; transition: 0.2s; }
@@ -175,12 +152,6 @@
         }
 
         @media (max-width: 768px) {
-            header { padding: 12px 24px; height: auto; position: fixed; top: 0; width: 100%; box-sizing: border-box; background: #fff; z-index: 1000; }
-            .header-pill { height: auto; padding: 15px 20px; border-radius: 20px; flex-direction: column; gap: 10px; width: 100%; max-width: 100%; }
-            .search-wrap { width: 100%; }
-            .logo img { height: 32px; }
-            .header-right { width: 100%; justify-content: center; }
-            
             .wrapper { padding: 140px 24px 40px; }
             .main-card { padding: 40px 24px; }
             .title-price-row h1 { font-size: 24px; }
@@ -252,11 +223,11 @@
             </div>
 
             <div class="tab-strip">
-                <a href="{{ route('lms.course.detail') }}" class="tab-item">About</a>
-                <a href="{{ route('lms.courses') }}" class="tab-item">Outcomes</a>
-                <a href="{{ route('lms.modules') }}" class="tab-item">Modules</a>
-                <a href="{{ route('lms.recommendations') }}" class="tab-item">Recommendations</a>
-                <a href="{{ route('lms.testimonials') }}" class="tab-item">Testimonials</a>
+                <a href="{{ route('course.detail') }}" class="tab-item">About</a>
+                <a href="{{ route('courses') }}" class="tab-item">Outcomes</a>
+                <a href="{{ route('modules') }}" class="tab-item">Modules</a>
+                <a href="{{ route('recommendations') }}" class="tab-item">Recommendations</a>
+                <a href="{{ route('testimonials') }}" class="tab-item">Testimonials</a>
                 <div class="tab-item active">Reviews</div>
             </div>
 

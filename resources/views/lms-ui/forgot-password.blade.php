@@ -14,7 +14,7 @@
         </div>
 
         <!-- Form Section -->
-        <form action="{{ route('lms.password.email') }}" method="POST" class="auth-form" id="forgotPasswordForm">
+        <form action="{{ route('password.email') }}" method="POST" class="auth-form" id="forgotPasswordForm">
             @csrf
             <div class="input-group" style="margin-bottom: 40px;">
                 <input type="email" id="email" name="email" placeholder="Email" required>
@@ -26,7 +26,7 @@
         </form>
 
         <div class="text-center">
-            <a href="{{ route('lms.login') }}" class="back-link">Back to Sign In</a>
+            <a href="{{ route('login') }}" class="back-link">Back to Sign In</a>
         </div>
 
     </div>

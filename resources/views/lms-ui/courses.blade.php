@@ -199,7 +199,7 @@
                     </div>
 
                     <div class="hero-btns" style="margin-top:20px;">
-                        <a href="{{ route('lms.shopping.cart') }}" class="btn-dark-blue" style="background: #002b55; text-decoration:none;">Add to Cart</a>
+                        <a href="{{ route('shopping.cart') }}" class="btn-dark-blue" style="background: #002b55; text-decoration:none;">Add to Cart</a>
                     </div>
                 </div>
 
@@ -213,12 +213,12 @@
             </div>
 
             <div class="tab-strip">
-                <a href="{{ route('lms.course.detail') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_about') }}</a>
+                <a href="{{ route('course.detail') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_about') }}</a>
                 <div class="tab-item active">{{ __('lms_ui::course_flow.tab_outcomes') }}</div>
-                <a href="{{ route('lms.modules') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_modules') }}</a>
-                <a href="{{ route('lms.recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
-                <a href="{{ route('lms.testimonials') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_testimonials') }}</a>
-                <a href="{{ route('lms.reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
+                <a href="{{ route('modules') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_modules') }}</a>
+                <a href="{{ route('recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
+                <a href="{{ route('testimonials') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_testimonials') }}</a>
+                <a href="{{ route('reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
             </div>
 
             <div class="tab-panels">
@@ -257,7 +257,7 @@
                     </ul>
                 </div>
                 <div class="f-right-col">
-                    <form method="POST" id="courses-footer-lang" action="{{ route('lms.locale.set', ['locale' => app()->getLocale()]) }}" style="display:inline;">
+                    <form method="POST" id="courses-footer-lang" action="{{ route('locale.set', ['locale' => app()->getLocale()]) }}" style="display:inline;">
                         @csrf
                         <select class="lang-select" onchange="document.getElementById('courses-footer-lang').action='{{ url('/set-language') }}/'+this.value; document.getElementById('courses-footer-lang').submit();">
                             <option value="en" @selected(app()->getLocale() === 'en')>{{ __('lms_ui::home.lang_english') }}</option>

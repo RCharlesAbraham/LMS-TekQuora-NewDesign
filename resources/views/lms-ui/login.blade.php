@@ -28,7 +28,7 @@
         </div>
 
         <!-- Form Section -->
-        <form action="{{ route('lms.login.post') }}" method="POST" class="auth-form" id="loginForm">
+        <form action="{{ route('login.post') }}" method="POST" class="auth-form" id="loginForm">
             @csrf
 
             @if (session('status'))
@@ -58,7 +58,7 @@
             </div>
 
             <div class="forgot-password-container">
-                <a href="{{ route('lms.password.request') }}" class="forgot-password-link">{{ __('lms_ui::auth.forgot_password') }}</a>
+                <a href="{{ route('password.request') }}" class="forgot-password-link">{{ __('lms_ui::auth.forgot_password') }}</a>
             </div>
 
             <div class="form-actions row-actions">
@@ -77,7 +77,7 @@
         </form>
 
         <div class="signup-container">
-            <p>{{ __('lms_ui::auth.no_account') ?? "Don't have an Account?" }} <a href="{{ route('lms.register') }}" class="signup-link">{{ __('lms_ui::auth.sign_up') }}</a></p>
+            <p>{{ __('lms_ui::auth.no_account') ?? "Don't have an Account?" }} <a href="{{ route('register') }}" class="signup-link">{{ __('lms_ui::auth.sign_up') }}</a></p>
         </div>
 
     </div>

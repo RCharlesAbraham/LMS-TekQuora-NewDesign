@@ -18,8 +18,8 @@
     @stack('styles')
 </head>
 <body>
-    <!-- Navbar Included -->
-    @include('partials.navbar')
+    <!-- Header -->
+    @include('partials.header')
 
     <!-- Main Content -->
     <main class="main-content">

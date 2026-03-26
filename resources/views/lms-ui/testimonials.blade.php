@@ -26,29 +26,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        header { 
-            background: #fff; 
-            height: 74px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
-            padding: 0 30px;
-        }
-        .header-pill { width: 100%; max-width: 1400px; display: flex; align-items: center; justify-content: space-between; }
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo img { height: 38px; }
-        .search-wrap { position: relative; width: 280px; }
-        .search-wrap input { width: 100%; height: 42px; background: #f1f5f9; border: none; border-radius: 25px; padding: 0 15px 0 40px; font-size: 13.5px; outline: none; }
-        .search-wrap svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
-        .header-right { display: flex; align-items: center; gap: 15px; }
-        .h-icon-btn { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: #64748b; text-decoration: none; position: relative; }
-        .profile-pill { display: flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 35px; background: #f8fafc; border: 1px solid #e2e8f0; color: #1e293b; font-weight: 600; font-size: 13.5px; text-decoration: none; }
-        .avatar-head { width: 32px; height: 32px; border-radius: 50%; background: #94a3b8; }
-
         .wrapper { display: grid; grid-template-columns: 240px 1fr; gap: 30px; max-width: 1450px; margin: 0 auto; padding: 100px 30px 40px; }
         .sidebar { background: #fff; border-radius: 24px; padding: 25px 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); position: sticky; top: 100px; height: fit-content; grid-row: 1/span 2; }
         .nav-link { display: flex; align-items: center; gap: 14px; padding: 12px 18px; border-radius: 14px; text-decoration: none; color: #64748b; font-size: 14px; font-weight: 500; margin-bottom: 4px; transition: 0.2s; }
@@ -177,12 +154,12 @@
             </div>
 
             <div class="tab-strip">
-                <a href="{{ route('lms.course.detail') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_about') }}</a>
-                <a href="{{ route('lms.courses') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_outcomes') }}</a>
-                <a href="{{ route('lms.modules') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_modules') }}</a>
-                <a href="{{ route('lms.recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
+                <a href="{{ route('course.detail') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_about') }}</a>
+                <a href="{{ route('courses') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_outcomes') }}</a>
+                <a href="{{ route('modules') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_modules') }}</a>
+                <a href="{{ route('recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
                 <div class="tab-item active">{{ __('lms_ui::course_flow.tab_testimonials') }}</div>
-                <a href="{{ route('lms.reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
+                <a href="{{ route('reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
             </div>
 
            
@@ -215,7 +192,7 @@
                     </ul>
                 </div>
                 <div class="f-right-col">
-                    <form method="POST" id="testi-footer-lang" action="{{ route('lms.locale.set', ['locale' => app()->getLocale()]) }}" style="display:inline;">
+                    <form method="POST" id="testi-footer-lang" action="{{ route('locale.set', ['locale' => app()->getLocale()]) }}" style="display:inline;">
                         @csrf
                         <select class="lang-picker" onchange="document.getElementById('testi-footer-lang').action='{{ url('/set-language') }}/'+this.value; document.getElementById('testi-footer-lang').submit();">
                             <option value="en" @selected(app()->getLocale() === 'en')>{{ __('lms_ui::home.lang_english') }}</option>

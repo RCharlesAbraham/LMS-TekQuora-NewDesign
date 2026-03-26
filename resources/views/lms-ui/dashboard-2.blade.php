@@ -237,7 +237,7 @@
                                 <h4>No classes enrolled yet</h4>
                                 <p>Get started with us today</p>
                             </div>
-                            <button class="btn-enrol" onclick="window.location.href='{{ route('lms.courses') }}'">+ Enrol Now</button>
+                            <button class="btn-enrol" onclick="window.location.href='{{ route('courses') }}'">+ Enrol Now</button>
                         </div>
                     </div>
                 </div>

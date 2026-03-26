@@ -6,6 +6,7 @@
     <title>Free Courses | IL² RMUTTO</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}">
     <style>
         :root {
             --primary: #003a70;
@@ -27,79 +28,6 @@
             flex-direction: column;
             padding: 20px;
         }
-
-        /* ─── HEADER ─── */
-        header {
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto 30px;
-        }
-
-        .header-pill {
-            background: #fff;
-            padding: 12px 30px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .h-left { display: flex; align-items: center; gap: 25px; }
-        .logo img { height: 40px; }
-
-        .cat-select {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #f1f5f9;
-            padding: 10px 18px;
-            border-radius: 40px;
-            font-size: 13.5px;
-            font-weight: 500;
-            color: #64748b;
-            border: 1.5px solid #e2e8f0;
-            cursor: pointer;
-        }
-
-        .search-wrap { 
-            position: relative; 
-            width: 320px; 
-        }
-        .search-wrap input {
-            width: 100%;
-            height: 44px;
-            background: #f1f5f9;
-            border: none;
-            border-radius: 40px;
-            padding: 0 20px 0 45px;
-            font-size: 14px;
-            outline: none;
-            color: #333;
-        }
-        .search-wrap svg {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-        }
-
-        .h-right { display: flex; align-items: center; gap: 20px; }
-        .h-icons { display: flex; align-items: center; gap: 15px; }
-        .icon-btn { color: #64748b; text-decoration: none; position: relative; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; }
-        .badge {
-            position: absolute; top: 4px; right: 4px; background: var(--orange); color: #fff;
-            font-size: 10px; font-weight: 800; width: 16px; height: 16px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; border: 2px solid #fff;
-        }
-        .profile-btn {
-            display: flex; align-items: center; gap: 12px; padding: 6px 18px 6px 6px;
-            border-radius: 40px; background: #f8fafc; border: 1.5px solid #e2e8f0;
-            text-decoration: none; color: inherit; font-weight: 700; font-size: 13.5px;
-        }
-        .avatar-head { width: 34px; height: 34px; border-radius: 50%; background: #94a3b8; }
 
         /* ─── MAIN SHELL ─── */
         .wrapper {
@@ -257,38 +185,7 @@
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="header-pill">
-            <div class="h-left">
-                <a href="{{ route('dashboard.1') }}" class="logo"><img src="{{ asset('images/logo.png') }}" alt="Logo"></a>
-                <div class="cat-select">
-                    Categories
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
-                </div>
-                <div class="search-wrap">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" placeholder="Search here">
-                </div>
-            </div>
-
-            <div class="h-right">
-                <div class="h-icons">
-                    <a href="{{ route('favorites') }}" class="icon-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></a>
-                    <a href="{{ route('shopping.cart') }}" class="icon-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></a>
-                    <div class="icon-btn">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                        <span class="badge">2</span>
-                    </div>
-                </div>
-                <a href="{{ route('account.new') }}" class="profile-btn">
-                    <div class="avatar-head"></div>
-                    <span>{{ $user->name ?? 'Student' }}</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"><path d="m6 9 6 6 6-6"/></svg>
-                </a>
-            </div>
-        </div>
-    </header>
+    @include('partials.header')
 
     <div class="wrapper">
         <!-- SIDEBAR -->

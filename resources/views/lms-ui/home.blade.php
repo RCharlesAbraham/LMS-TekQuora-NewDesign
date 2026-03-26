@@ -6,118 +6,23 @@
     <title>{{ __('lms_ui::home.page_title') }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ asset('lms-ui/images/logo.png') }}">
+    <link rel="stylesheet" href="{{ asset('lms-ui/css/layout.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('lms-ui/css/style.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('lms-ui/css/home.css') }}?v={{ time() }}">
     <style>
-        /* Hover Interaction for Cards */
         .vertical-course-card, .free-session-card, .category-card-custom {
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
         }
-
         .vertical-course-card:hover, .free-session-card:hover, .category-card-custom:hover {
             transform: translateY(-4px) scale(1.01) !important;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
             z-index: 10;
         }
-
-        /* Top Bar glass interaction */
-        .glass-header {
-            transition: all 0.3s ease;
-        }
-        .glass-header.scrolled {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
-        }
-        .home-lang-switch {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-        .home-lang-switch form { margin: 0; display: inline; }
-        .home-lang-btn {
-            padding: 6px 14px;
-            border-radius: 22px;
-            border: 1.5px solid #e2e8f0;
-            background: #f8fafc;
-            font-size: 12px;
-            font-weight: 800;
-            color: #475569;
-            cursor: pointer;
-            font-family: inherit;
-            transition: 0.2s;
-        }
-        .home-lang-btn:hover {
-            border-color: #0f3c6e;
-            color: #0f3c6e;
-        }
-        .home-lang-btn.active {
-            background: #0f3c6e;
-            color: #fff;
-            border-color: #0f3c6e;
-        }
-        @media (max-width: 768px) {
-            .home-lang-switch { order: -1; width: 100%; justify-content: center; margin-bottom: 8px; }
-            .header-right { flex-wrap: wrap; justify-content: center; }
-        }
     </style>
 </head>
 <body class="home-page">
     <!-- Header / Navigation -->
-        <header class="glass-header">
-        <div class="header-left">
-            <a href="{{ route('home') }}">
-                <img src="{{ asset('lms-ui/images/logo.png') }}" alt="Logo" class="logo">
-            </a>
-            
-            <a href="{{ route('lms.category') }}" class="category-btn" style="display: flex; align-items: center; gap: 6px;">
-                {{ __('lms_ui::home.nav_courses') }}
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </a>
-            
-            <div class="search-box">
-                <a href="{{ route('lms.search') }}" style="position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#a0aec0; display: flex; align-items: center;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </a>
-                <input type="text" placeholder="{{ __('lms_ui::home.search_placeholder') }}">
-            </div>
-        </div>
-
-        <div class="header-right">
-            <a href="{{ route('lms.wishlist') }}" class="icon-btn" title="{{ __('lms_ui::home.title_wishlist') }}">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </a>
-            <a href="{{ route('lms.shopping.cart') }}" class="icon-btn" title="{{ __('lms_ui::home.title_cart') }}">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            </a>
-            <button class="icon-btn" title="{{ __('lms_ui::home.title_notifications') }}" style="position:relative;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                <span style="position:absolute;top:-5px;right:-5px;background:#f97316;color:white;font-size:10px;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;">2</span>
-            </button>
-
-            <div class="home-lang-switch" aria-label="Language">
-                <form method="POST" action="{{ route('lms.locale.set', ['locale' => 'en']) }}">
-                    @csrf
-                    <button type="submit" class="home-lang-btn {{ app()->getLocale() === 'en' ? 'active' : '' }}">{{ __('lms_ui::home.lang_english') }}</button>
-                </form>
-                <form method="POST" action="{{ route('lms.locale.set', ['locale' => 'th']) }}">
-                    @csrf
-                    <button type="submit" class="home-lang-btn {{ app()->getLocale() === 'th' ? 'active' : '' }}">{{ __('lms_ui::home.lang_thai') }}</button>
-                </form>
-            </div>
-            
-            <a href="{{ route('lms.account.new') }}" class="user-profile">
-                <div class="avatar-circle"></div>
-                <span>{{ Auth::check() ? Auth::user()->name : __('lms_ui::home.student') }}</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </div>
-    </header>
+    @include('lms-ui.partials.header')
 
     <!-- Mobile Sidebar Nav -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
@@ -130,33 +35,33 @@
         </div>
         <div class="mobile-nav-body">
             <div class="mobile-search-box">
-                <form action="{{ route('lms.search') }}" method="GET">
+                <form action="{{ route('search') }}" method="GET">
                     <input type="text" placeholder="{{ __('lms_ui::home.mobile_search_placeholder') }}" name="q">
                 </form>
             </div>
             <div class="home-lang-switch" style="padding: 0 20px 16px; justify-content: center;">
-                <form method="POST" action="{{ route('lms.locale.set', ['locale' => 'en']) }}">
+                <form method="POST" action="{{ route('locale.set', ['locale' => 'en']) }}">
                     @csrf
                     <button type="submit" class="home-lang-btn {{ app()->getLocale() === 'en' ? 'active' : '' }}">{{ __('lms_ui::home.lang_english') }}</button>
                 </form>
-                <form method="POST" action="{{ route('lms.locale.set', ['locale' => 'th']) }}">
+                <form method="POST" action="{{ route('locale.set', ['locale' => 'th']) }}">
                     @csrf
                     <button type="submit" class="home-lang-btn {{ app()->getLocale() === 'th' ? 'active' : '' }}">{{ __('lms_ui::home.lang_thai') }}</button>
                 </form>
             </div>
             <ul class="mobile-nav-links">
                 <li><a href="{{ route('home') }}">{{ __('lms_ui::home.mobile_home') }}</a></li>
-                <li><a href="{{ route('lms.category') }}">{{ __('lms_ui::home.mobile_courses') }}</a></li>
-                <li><a href="{{ route('lms.courses') }}">{{ __('lms_ui::home.mobile_all_courses') }}</a></li>
-                <li><a href="{{ route('lms.free.courses') }}">{{ __('lms_ui::home.mobile_free_courses') }}</a></li>
-                <li><a href="{{ route('lms.dashboard.1') }}">{{ __('lms_ui::home.mobile_dashboard') }}</a></li>
+                <li><a href="{{ route('category') }}">{{ __('lms_ui::home.mobile_courses') }}</a></li>
+                <li><a href="{{ route('courses') }}">{{ __('lms_ui::home.mobile_all_courses') }}</a></li>
+                <li><a href="{{ route('free.courses') }}">{{ __('lms_ui::home.mobile_free_courses') }}</a></li>
+                <li><a href="{{ route('dashboard.1') }}">{{ __('lms_ui::home.mobile_dashboard') }}</a></li>
             </ul>
             <div class="mobile-nav-footer">
                 @guest
-                    <a href="{{ route('lms.login') }}" class="btn-step-1">{{ __('lms_ui::home.login') }}</a>
-                    <a href="{{ route('lms.register') }}" class="btn-step-1" style="background: transparent; color: #0f3c6e; border: 1px solid #0f3c6e;">{{ __('lms_ui::home.signup') }}</a>
+                    <a href="{{ route('login') }}" class="btn-step-1">{{ __('lms_ui::home.login') }}</a>
+                    <a href="{{ route('register') }}" class="btn-step-1" style="background: transparent; color: #0f3c6e; border: 1px solid #0f3c6e;">{{ __('lms_ui::home.signup') }}</a>
                 @else
-                    <a href="{{ route('lms.account.new') }}" class="mobile-user-profile">
+                    <a href="{{ route('account.new') }}" class="mobile-user-profile">
                         <div class="avatar-circle"></div>
                         <span>{{ __('lms_ui::home.student_profile') }}</span>
                     </a>
@@ -180,8 +85,8 @@
                 <h1 class="hero-title-main">{{ __('lms_ui::home.hero_title') }}</h1>
                 <p class="hero-desc-main">{{ __('lms_ui::home.hero_desc') }}</p>
                 <div class="hero-action-btns">
-                    <a href="{{ route('lms.login') }}" class="btn-step-1">{{ __('lms_ui::home.login') }}</a>
-                    <a href="{{ route('lms.register') }}" class="btn-step-1">{{ __('lms_ui::home.signup') }}</a>
+                    <a href="{{ route('login') }}" class="btn-step-1">{{ __('lms_ui::home.login') }}</a>
+                    <a href="{{ route('register') }}" class="btn-step-1">{{ __('lms_ui::home.signup') }}</a>
                 </div>
             </div>
 
@@ -296,7 +201,7 @@
                     <li>{{ __('lms_ui::home.wr_point_2') }}</li>
                 </ul>
 
-                <a href="{{ route('lms.register') }}" class="btn-get-started">{{ __('lms_ui::home.get_started') }}</a>
+                <a href="{{ route('register') }}" class="btn-get-started">{{ __('lms_ui::home.get_started') }}</a>
             </div>
         </div>
     </section>
@@ -354,7 +259,7 @@
                 <p class="section-sub">{{ __('lms_ui::home.free_session_sub') }}</p>
             </div>
             <div style="display: flex; align-items: center; gap: 20px;">
-                <a href="{{ route('lms.free.courses') }}" style="font-size: 14px; font-weight: 700; color: #003a70; text-decoration: none;">{{ __('lms_ui::home.view_all') }}</a>
+                <a href="{{ route('free.courses') }}" style="font-size: 14px; font-weight: 700; color: #003a70; text-decoration: none;">{{ __('lms_ui::home.view_all') }}</a>
                 <div class="carousel-arrows" style="display: flex; gap: 12px;">
                     <button class="arrow-btn" style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #dbeafe; background: #eff6ff; color: #3b82f6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -373,7 +278,7 @@
             @foreach($free_course_imgs as $index => $img)
             @php $course = ['img' => $img, 'title' => $free_course_titles[$index] ?? '']; @endphp
             @if($index == 0)
-            <a href="{{ route('lms.courses') }}" class="vertical-course-card" style="text-decoration:none; color:inherit; display:block;">
+            <a href="{{ route('courses') }}" class="vertical-course-card" style="text-decoration:none; color:inherit; display:block;">
             @else
             <div class="vertical-course-card" style="color:inherit;">
             @endif
@@ -432,7 +337,7 @@
         </div>
         <div class="course-cards-row">
             @for($i = 0; $i < 6; $i++)
-            <a href="{{ route('lms.course.detail') }}" class="course-card-home-main" style="text-decoration:none; color:inherit; min-width: 300px;">
+            <a href="{{ route('course.detail') }}" class="course-card-home-main" style="text-decoration:none; color:inherit; min-width: 300px;">
                 <div class="course-card-home">
                     <div class="course-card-thumb">
                         <img src="{{ asset('lms-ui/images/learning.png') }}" alt="Course">
@@ -521,7 +426,7 @@
         </div>
         <div class="course-cards-row">
             @for($i = 0; $i < 6; $i++)
-            <a href="{{ route('lms.course.detail') }}" class="course-card-home-main" style="text-decoration:none; color:inherit; min-width: 300px;">
+            <a href="{{ route('course.detail') }}" class="course-card-home-main" style="text-decoration:none; color:inherit; min-width: 300px;">
                 <div class="course-card-home">
                     <div class="course-card-thumb">
                         <img src="{{ asset('lms-ui/images/learning.png') }}" alt="Course">
@@ -575,7 +480,7 @@
             </div>
 
             <div class="footer-right-section">
-                <form method="POST" id="home-footer-lang-form" action="{{ route('lms.locale.set', ['locale' => app()->getLocale()]) }}" class="footer-lang-form" style="display:inline;">
+                <form method="POST" id="home-footer-lang-form" action="{{ route('locale.set', ['locale' => app()->getLocale()]) }}" class="footer-lang-form" style="display:inline;">
                     @csrf
                     <select class="footer-lang-select" onchange="document.getElementById('home-footer-lang-form').action='{{ url('/set-language') }}/'+this.value; document.getElementById('home-footer-lang-form').submit();">
                         <option value="en" @selected(app()->getLocale() === 'en')>{{ __('lms_ui::home.lang_english') }}</option>
@@ -645,10 +550,10 @@
 
         // Header scroll effect
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('.glass-header');
-            if (window.scrollY > 50) {
+            const header = document.querySelector('.main-app-header');
+            if (header && window.scrollY > 50) {
                 header.classList.add('scrolled');
-            } else {
+            } else if (header) {
                 header.classList.remove('scrolled');
             }
         });

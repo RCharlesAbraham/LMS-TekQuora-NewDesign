@@ -30,75 +30,6 @@
             overflow-x: hidden;
         }
 
-        .avatar-head { width: 32px; height: 32px; border-radius: 50%; background: #94a3b8; }
-
-        header.shared-header,
-        header.lms-ui-header {
-            background: #fff;
-            min-height: 74px;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            max-width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            padding: 0 30px;
-            box-sizing: border-box;
-            overflow: visible;
-            overflow-x: hidden;
-        }
-        .header-pill {
-            width: 100%;
-            max-width: 1400px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo img { height: 38px; }
-        .search-wrap { position: relative; width: 280px; }
-        .search-wrap input {
-            width: 100%;
-            height: 42px;
-            background: #f1f5f9;
-            border: none;
-            border-radius: 25px;
-            padding: 0 15px 0 40px;
-            font-size: 13.5px;
-            outline: none;
-        }
-        .search-wrap svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
-        .header-right { display: flex; align-items: center; gap: 15px; }
-        .h-icon-btn {
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            text-decoration: none;
-            position: relative;
-        }
-        .profile-pill {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 5px 15px 5px 5px;
-            border-radius: 35px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            color: #1e293b;
-            font-weight: 600;
-            font-size: 13.5px;
-            text-decoration: none;
-        }
-
         /* â”€â”€â”€ MAIN LAYOUT â”€â”€â”€ */
         .shared-shell {
             display: grid;
@@ -384,7 +315,7 @@
                 </div>
 
                 <!-- Form -->
-                <form action="{{ route('lms.account.update') }}" method="POST">
+                <form action="{{ route('account.update') }}" method="POST">
                     @csrf
                     <div class="form-grid">
                         <div class="form-group">
@@ -401,7 +332,7 @@
                             <input type="password" name="current_password" value="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
                         </div>
                         <div class="form-group">
-                            <a href="{{ route('lms.password.change') }}" class="btn-navy">Change</a>
+                            <a href="{{ route('password.change') }}" class="btn-navy">Change</a>
                         </div>
 
                         <div class="form-group">
@@ -439,7 +370,7 @@
                     <button type="submit" class="btn-update">Update</button>
                 </form>
 
-                <form id="password-form" action="{{ route('lms.account.password') }}" method="POST" style="display:none;">@csrf</form>
+                <form id="password-form" action="{{ route('account.password') }}" method="POST" style="display:none;">@csrf</form>
             </div>
         </main>
 

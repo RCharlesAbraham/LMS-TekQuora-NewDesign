@@ -84,7 +84,7 @@
                 <!-- Tabs -->
                 <div class="tabs-wrap">
                     <button type="button" class="tab-btn active" onclick="switchTab(this, 'transactions')">{{ __('lms_ui::transactions_page.tab_transactions') }}</button>
-                    <a href="{{ route('lms.refund') }}" class="tab-btn" style="text-decoration:none; text-align:center;">{{ __('lms_ui::transactions_page.tab_refunds') }}</a>
+                    <a href="{{ route('refund') }}" class="tab-btn" style="text-decoration:none; text-align:center;">{{ __('lms_ui::transactions_page.tab_refunds') }}</a>
                 </div>
 
                 <!-- Table Content -->

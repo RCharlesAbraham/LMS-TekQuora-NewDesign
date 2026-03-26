@@ -26,36 +26,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* ─── HEADER ─── */
-        header { 
-            background: #fff; 
-            height: 74px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
-            padding: 0 30px;
-        }
-        .header-pill { 
-            width: 100%; 
-            max-width: 1400px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-        }
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo img { height: 38px; }
-        .search-wrap { position: relative; width: 280px; }
-        .search-wrap input { width: 100%; height: 42px; background: #f1f5f9; border: none; border-radius: 25px; padding: 0 15px 0 40px; font-size: 13.5px; outline: none; }
-        .search-wrap svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
-        .header-right { display: flex; align-items: center; gap: 15px; }
-        .h-icon-btn { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: #64748b; text-decoration: none; position: relative; }
-        .profile-pill { display: flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 35px; background: #f8fafc; border: 1px solid #e2e8f0; color: #1e293b; font-weight: 600; font-size: 13.5px; text-decoration: none; }
-        .avatar-head { width: 32px; height: 32px; border-radius: 50%; background: #94a3b8; }
-
         /* ─── SHELL ─── */
         .wrapper { display: grid; grid-template-columns: 240px 1fr; gap: 30px; max-width: 1450px; margin: 0 auto; padding: 100px 30px 40px; }
         
@@ -173,52 +143,52 @@
     <header>
         <div class="header-pill">
             <div class="header-left">
-                <a href="{{ route('lms.dashboard.1') }}" class="logo"><img src="{{ asset('lms-ui/images/logo.png') }}" alt="Logo"></a>
+                <a href="{{ route('dashboard.1') }}" class="logo"><img src="{{ asset('lms-ui/images/logo.png') }}" alt="Logo"></a>
                 <div class="search-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><input type="text" placeholder="{{ __('lms_ui::course_flow.search_placeholder') }}"></div>
             </div>
             <div class="header-right">
                 <div class="h-icon-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                 <div class="h-icon-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
-                <a href="{{ route('lms.account.new') }}" class="profile-pill"><div class="avatar-head"></div><span>{{ Auth::check() ? Auth::user()->name : __('lms_ui::course_flow.student') }}</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"><path d="m6 9 6 6 6-6"/></svg></a>
+                <a href="{{ route('account.new') }}" class="profile-pill"><div class="avatar-head"></div><span>{{ Auth::check() ? Auth::user()->name : __('lms_ui::course_flow.student') }}</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"><path d="m6 9 6 6 6-6"/></svg></a>
             </div>
         </div>
     </header>
 
     <div class="wrapper">
         <aside class="sidebar">
-            <a href="{{ route('lms.dashboard.1') }}" class="nav-link">
+            <a href="{{ route('dashboard.1') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/1.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.dashboard') }}
             </a>
-            <a href="{{ route('lms.calendar') }}" class="nav-link">
+            <a href="{{ route('calendar') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/2.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.calendar') }}
             </a>
-            <a href="{{ route('lms.learning') }}" class="nav-link">
+            <a href="{{ route('learning') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/3.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.learning') }}
             </a>
-            <a href="{{ route('lms.courses') }}" class="nav-link active">
+            <a href="{{ route('courses') }}" class="nav-link active">
                 <img src="{{ asset('lms-ui/images/icons/4.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.courses') }}
             </a>
-            <a href="{{ route('lms.quiz') }}" class="nav-link">
+            <a href="{{ route('quiz') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/5.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.quiz') }}
             </a>
-            <a href="{{ route('lms.account.new') }}" class="nav-link">
+            <a href="{{ route('account.new') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/6.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.account') }}
             </a>
-            <a href="{{ route('lms.wallet.address') }}" class="nav-link">
+            <a href="{{ route('wallet.address') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/7.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.wallet_address') }}
             </a>
-            <a href="{{ route('lms.transaction') }}" class="nav-link">
+            <a href="{{ route('transaction') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/8.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.transaction') }}
             </a>
-            <a href="{{ route('lms.payment.method') }}" class="nav-link">
+            <a href="{{ route('payment.method') }}" class="nav-link">
                 <img src="{{ asset('lms-ui/images/icons/9.png') }}" style="width: 22px; height: 22px;">
                 {{ __('lms_ui::navigation.payment') }}
             </a>
@@ -274,12 +244,12 @@
                 </div>
 
                 <div class="tab-strip">
-                    <a href="{{ route('lms.course.detail') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_about') }}</a>
-                    <a href="{{ route('lms.courses') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_outcomes') }}</a>
+                    <a href="{{ route('course.detail') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_about') }}</a>
+                    <a href="{{ route('courses') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_outcomes') }}</a>
                     <div class="tab-item active">{{ __('lms_ui::course_flow.tab_modules') }}</div>
-                    <a href="{{ route('lms.recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
-                    <a href="{{ route('lms.testimonials') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_testimonials') }}</a>
-                    <a href="{{ route('lms.reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
+                    <a href="{{ route('recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
+                    <a href="{{ route('testimonials') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_testimonials') }}</a>
+                    <a href="{{ route('reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
                 </div>
 
                 <div class="modules-content">
@@ -349,7 +319,7 @@
                     </ul>
                 </div>
                 <div class="f-right-col">
-                    <form method="POST" id="modules-footer-lang" action="{{ route('lms.locale.set', ['locale' => app()->getLocale()]) }}" style="display:inline;">
+                    <form method="POST" id="modules-footer-lang" action="{{ route('locale.set', ['locale' => app()->getLocale()]) }}" style="display:inline;">
                         @csrf
                         <select class="lang-picker" onchange="document.getElementById('modules-footer-lang').action='{{ url('/set-language') }}/'+this.value; document.getElementById('modules-footer-lang').submit();">
                             <option value="en" @selected(app()->getLocale() === 'en')>{{ __('lms_ui::home.lang_english') }}</option>

@@ -347,7 +347,7 @@
         @include('lms-ui.partials.sidebar', ['activePage' => 'learning'])
 
         <main class="content">
-            <a href="{{ route('lms.learning') }}" style="text-decoration: none;">
+            <a href="{{ route('learning') }}" style="text-decoration: none;">
                 <button class="back-btn">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m15 18-6-6 6-6"/></svg>
                     Back

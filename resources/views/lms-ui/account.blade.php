@@ -48,12 +48,6 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
         .header-logo img {
             height: 38px;
             width: auto;
@@ -92,29 +86,6 @@
             flex: 1;
             font-size: 14px;
             color: #475569;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .h-icon-btn {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .h-icon-btn svg {
-            width: 22px;
-            height: 22px;
-            stroke-width: 1.5;
         }
 
         .notification-badge {
@@ -500,7 +471,7 @@
                         <input type="password" value="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
                     </div>
                     <div class="form-group" style="padding-bottom: 2px;">
-                        <a href="{{ route('lms.password.change') }}" class="btn-navy" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Change</a>
+                        <a href="{{ route('password.change') }}" class="btn-navy" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Change</a>
                     </div>
 
                     <div class="form-group">

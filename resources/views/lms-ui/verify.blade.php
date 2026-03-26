@@ -14,7 +14,7 @@
         </div>
 
         <!-- Form Section -->
-        <form action="{{ route('lms.verification.verify') }}" method="POST" class="auth-form" id="verifyForm">
+        <form action="{{ route('verification.verify') }}" method="POST" class="auth-form" id="verifyForm">
             @csrf
             <div class="verification-code">
                 <input type="text" maxlength="1" pattern="[0-9]" required autocomplete="off">
@@ -33,7 +33,7 @@
         <div class="text-center">
             <p class="resend-text">Send code again <span>50 Sec</span></p>
             <div style="margin-top: 20px;">
-                <a href="{{ route('lms.login') }}" class="back-link">Back to Sign In</a>
+                <a href="{{ route('login') }}" class="back-link">Back to Sign In</a>
             </div>
         </div>
     </div>

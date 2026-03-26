@@ -26,27 +26,27 @@ body {
     overflow-x: hidden;
 }
 
-/* ─── HEADER (TOP BAR) — matches account-new / dashboard shell ─── */
+/* ─── HEADER (TOP BAR) — floating rounded pill ─── */
 header.shared-header,
 header.lms-ui-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 0;
+    position: sticky;
+    top: 12px;
     left: 0;
     right: 0;
-    width: 100%;
+    width: calc(100% - 40px);
     max-width: 100%;
-    min-height: 74px;
+    min-height: 0;
     height: auto;
     z-index: 1000;
-    background: #fff;
-    padding: 0 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    background: transparent;
+    padding: 0;
+    margin: 12px auto 0;
+    box-shadow: none;
     box-sizing: border-box;
     overflow: visible;
-    overflow-x: hidden;
     flex-shrink: 0;
 }
 
@@ -58,18 +58,24 @@ header.lms-ui-header {
 header.shared-header .header-pill,
 header.lms-ui-header .header-pill {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 60px;
+    padding: 0 28px;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(226, 232, 240, 0.4);
 }
 
 .header-pill {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1450px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -248,7 +254,7 @@ header.lms-ui-header .header-pill {
     gap: 25px;
     max-width: 1450px;
     margin: 0 auto;
-    padding: 90px 30px 50px;
+    padding: 20px 30px 50px;
     width: 100%;
     min-height: 100vh;
 }
@@ -260,7 +266,7 @@ header.lms-ui-header .header-pill {
     padding: 20px 10px 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     position: sticky;
-    top: 80px;
+    top: 90px;
     height: fit-content;
     align-self: start;
 }
@@ -318,8 +324,17 @@ header.lms-ui-header .header-pill {
 }
 
 @media (max-width: 768px) {
-    .shared-header {
-        padding: 5px 12px;
+    header.shared-header,
+    header.lms-ui-header {
+        width: calc(100% - 20px);
+        top: 8px;
+        margin: 8px auto 0;
+    }
+    header.shared-header .header-pill,
+    header.lms-ui-header .header-pill {
+        height: 52px;
+        padding: 0 16px;
+        border-radius: 40px;
     }
     .mobile-toggle {
         display: block;
@@ -371,7 +386,7 @@ header.lms-ui-header .header-pill {
     }
     .shared-shell {
         grid-template-columns: 1fr;
-        padding: 70px 15px 30px;
+        padding: 15px 15px 30px;
     }
     .shared-sidebar {
         display: none; /* Hide desktop sidebar on mobile */
@@ -398,13 +413,4 @@ header.lms-ui-header .header-pill {
     .sidebar-overlay.active {
         display: block;
     }
-}
-
-/* When auth layout.css + style.css both load: keep flat bar, not double-rounded pill */
-header.shared-header .header-pill,
-header.lms-ui-header .header-pill {
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
 }

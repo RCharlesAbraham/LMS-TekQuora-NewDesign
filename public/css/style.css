@@ -38,28 +38,30 @@ body {
 
 /* Main App Header (Pill) */
 .main-app-header {
-    padding: 15px 30px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     position: sticky;
-    top: 0;
+    top: 12px;
     left: 0;
     right: 0;
     z-index: 1000;
+    background: transparent;
 }
 
 .header-pill {
     background: #fff;
     width: 100%;
-    max-width: 1450px;
-    height: 68px;
-    border-radius: 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 60px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(226, 232, 240, 0.5);
+    padding: 0 28px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(226, 232, 240, 0.4);
 }
 
 .header-left {
@@ -3532,15 +3534,45 @@ body {
     height: 38px;
 }
 
-/* ── SHARED NAVBAR & LAYOUT STYLES (used by partials/navbar.blade.php and layouts) ── */
+/* ── SHARED NAVBAR & LAYOUT STYLES (used by partials/header.blade.php and layouts) ── */
 .main-app-header {
-    position: fixed;
-    top: 0;
+    position: sticky;
+    top: 12px;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1000;
     background: transparent;
-    padding: 10px 30px;
+    padding: 0 20px;
+    margin-bottom: 0;
+}
+
+.h-login-btn,
+.h-signup-btn {
+    padding: 8px 22px;
+    border-radius: 25px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.h-login-btn {
+    background: #003a70;
+    color: #fff;
+}
+
+.h-login-btn:hover {
+    background: #002a52;
+}
+
+.h-signup-btn {
+    background: #f1f5f9;
+    color: #003a70;
+    border: 1px solid #e2e8f0;
+}
+
+.h-signup-btn:hover {
+    background: #e2e8f0;
 }
 
 .header-pill {
@@ -3785,4 +3817,49 @@ footer.main-app-footer {
 .desktop-logo {
     height: 38px;
     object-fit: contain;
+}
+
+/* ── MOBILE TOGGLE ── */
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #475569;
+    padding: 4px;
+}
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+    }
+    .main-app-header .cat-pill,
+    .main-app-header .search-wrap {
+        display: none !important;
+    }
+    .main-app-header .profile-pill span,
+    .main-app-header .profile-pill svg:last-child {
+        display: none !important;
+    }
+    .main-app-header .profile-pill {
+        padding: 4px;
+        background: none;
+        border: none;
+        width: 34px;
+        height: 34px;
+        justify-content: center;
+    }
+    .main-app-header {
+        padding: 0 12px;
+    }
+    .header-pill {
+        height: 52px;
+        padding: 0 16px;
+    }
+    .header-left {
+        gap: 12px;
+    }
+    .header-right {
+        gap: 8px;
+    }
 }

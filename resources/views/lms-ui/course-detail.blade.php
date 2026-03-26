@@ -227,7 +227,7 @@
                         <p>{{ __('lms_ui::course_flow.course_end') }} <span style="color: #2563eb; font-weight: 800;">{{ __('lms_ui::course_flow.date_june_26') }}</span></p>
                     </div>
                     <div class="btn-group">
-                        <a href="{{ route('lms.shopping.cart') }}" class="btn-cart">{{ __('lms_ui::course_flow.add_to_cart') }}</a>
+                        <a href="{{ route('shopping.cart') }}" class="btn-cart">{{ __('lms_ui::course_flow.add_to_cart') }}</a>
                     </div>
                 </div>
 
@@ -243,11 +243,11 @@
             <!-- TABS -->
             <div class="tab-strip">
                 <div class="tab-item active">{{ __('lms_ui::course_flow.tab_about') }}</div>
-                <a href="{{ route('lms.courses') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_outcomes') }}</a>
-                <a href="{{ route('lms.modules') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_modules') }}</a>
-                <a href="{{ route('lms.recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
-                <a href="{{ route('lms.testimonials') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_testimonials') }}</a>
-                <a href="{{ route('lms.reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
+                <a href="{{ route('courses') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_outcomes') }}</a>
+                <a href="{{ route('modules') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_modules') }}</a>
+                <a href="{{ route('recommendations') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_recommendations') }}</a>
+                <a href="{{ route('testimonials') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_testimonials') }}</a>
+                <a href="{{ route('reviews') }}" class="tab-item">{{ __('lms_ui::course_flow.tab_reviews') }}</a>
             </div>
 
             <!-- SECTION CONTAINER -->

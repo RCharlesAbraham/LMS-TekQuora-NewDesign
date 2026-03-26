@@ -181,7 +181,7 @@
                 @foreach ($courseImages as $index => $img)
                 @php $title = $courseTitles[$index] ?? ''; @endphp
                 @if($index == 0)
-                <a href="{{ route('lms.courses') }}" class="cat-card" style="text-decoration:none;">
+                <a href="{{ route('courses') }}" class="cat-card" style="text-decoration:none;">
                 @else
                 <div class="cat-card">
                 @endif

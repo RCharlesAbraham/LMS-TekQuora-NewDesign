@@ -10,55 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}?v={{ time() }}">
 </head>
 <body class="home-page">
-    <!-- Header / Navigation -->
-        <header class="glass-header">
-        <div class="header-left">
-            <a href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo">
-            </a>
-            
-            <a href="{{ route('category') }}" class="category-btn">
-                Categories
-                <div class="arrow-icons">
-                    <svg viewBox="0 0 24 24" style="width:8px;height:8px;" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                    <svg viewBox="0 0 24 24" style="width:8px;height:8px;" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </div>
-            </a>
-            
-            <div class="search-box">
-                <a href="{{ route('search') }}" style="position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#a0aec0; display: flex; align-items: center;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </a>
-                <input type="text" placeholder="Search here" onfocus="window.location.href='{{ route('search') }}'">
-            </div>
-        </div>
-
-        <div class="header-right">
-            @auth
-            <button class="icon-btn" title="Wishlist">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-            <a href="{{ route('shopping.cart') }}" class="icon-btn" title="Cart">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            </a>
-            <button class="icon-btn" title="Notifications" style="position:relative;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                <span style="position:absolute;top:-5px;right:-5px;background:#f97316;color:white;font-size:10px;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;">2</span>
-            </button>
-            
-            <a href="{{ route('account.new') }}" class="user-profile">
-                <div class="avatar-circle"></div>
-                <span>{{ Auth::user()->name ?? 'User' }}</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-            @endauth
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </div>
-    </header>
+    @include('partials.header')
 
     <!-- Mobile Sidebar Nav -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>

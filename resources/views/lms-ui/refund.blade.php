@@ -231,7 +231,7 @@
 
             <!-- Tabs -->
             <div class="tabs-wrap">
-                <a href="{{ route('lms.transaction') }}" class="tab-btn" style="text-decoration:none; text-align:center;">Transactions</a>
+                <a href="{{ route('transaction') }}" class="tab-btn" style="text-decoration:none; text-align:center;">Transactions</a>
                 <button class="tab-btn active" onclick="switchTab(this, 'refunds')">Refunds</button>
             </div>
 

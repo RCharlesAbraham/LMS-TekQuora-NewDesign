@@ -20,7 +20,7 @@
                 <img src="{{ asset('lms-ui/images/logo.png') }}" alt="Logo" class="logo">
             </a>
 
-            <a href="{{ route('lms.category') }}" class="category-btn">
+            <a href="{{ route('category') }}" class="category-btn">
                 Categories
                 <div class="arrow-icons">
                     <svg viewBox="0 0 24 24" style="width:8px;height:8px;" fill="none" stroke="currentColor"
@@ -35,7 +35,7 @@
             </a>
 
             <div class="search-box">
-                <a href="{{ route('lms.search') }}"
+                <a href="{{ route('search') }}"
                     style="position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#a0aec0; display: flex; align-items: center;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -43,7 +43,7 @@
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                 </a>
-                <input type="text" placeholder="Search here" onfocus="window.location.href='{{ route('lms.search') }}'">
+                <input type="text" placeholder="Search here" onfocus="window.location.href='{{ route('search') }}'">
             </div>
         </div>
 
@@ -56,7 +56,7 @@
                     </path>
                 </svg>
             </button>
-            <a href="{{ route('lms.shopping.cart') }}" class="icon-btn" title="Cart">
+            <a href="{{ route('shopping.cart') }}" class="icon-btn" title="Cart">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
@@ -72,7 +72,7 @@
                     style="position:absolute;top:-5px;right:-5px;background:#f97316;color:white;font-size:10px;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;">2</span>
             </button>
 
-            <a href="{{ route('lms.account.new') }}" class="user-profile">
+            <a href="{{ route('account.new') }}" class="user-profile">
                 <div class="avatar-circle"></div>
                 <span>{{ Auth::user()->name ?? 'User' }}</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -106,24 +106,24 @@
         </div>
         <div class="mobile-nav-body">
             <div class="mobile-search-box">
-                <form action="{{ route('lms.search') }}" method="GET">
+                <form action="{{ route('search') }}" method="GET">
                     <input type="text" placeholder="Search courses..." name="q">
                 </form>
             </div>
             <ul class="mobile-nav-links">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('lms.category') }}">Categories</a></li>
-                <li><a href="{{ route('lms.courses') }}">All Courses</a></li>
-                <li><a href="{{ route('lms.free.courses') }}">Free Courses</a></li>
-                <li><a href="{{ route('lms.dashboard.1') }}">My Dashboard</a></li>
+                <li><a href="{{ route('category') }}">Categories</a></li>
+                <li><a href="{{ route('courses') }}">All Courses</a></li>
+                <li><a href="{{ route('free.courses') }}">Free Courses</a></li>
+                <li><a href="{{ route('dashboard.1') }}">My Dashboard</a></li>
             </ul>
             <div class="mobile-nav-footer">
                 @guest
-                <a href="{{ route('lms.login') }}" class="btn-step-1">Login</a>
-                <a href="{{ route('lms.register') }}" class="btn-step-1"
+                <a href="{{ route('login') }}" class="btn-step-1">Login</a>
+                <a href="{{ route('register') }}" class="btn-step-1"
                     style="background: transparent; color: #0f3c6e; border: 1px solid #0f3c6e;">Signup</a>
                 @else
-                <a href="{{ route('lms.account.new') }}" class="mobile-user-profile">
+                <a href="{{ route('account.new') }}" class="mobile-user-profile">
                     <div class="avatar-circle"></div>
                     <span>{{ Auth::user()->name ?? 'User' }}</span>
                 </a>
@@ -148,8 +148,8 @@
                 <p class="hero-desc-main"> Tutor simulates a physical learning environment with interactive learning
                     that allows instructors and students to engage with one another.</p>
                 <div class="hero-action-btns">
-                    <a href="{{ route('lms.login') }}" class="btn-step-1">Login</a>
-                    <a href="{{ route('lms.register') }}" class="btn-step-1">Signup</a>
+                    <a href="{{ route('login') }}" class="btn-step-1">Login</a>
+                    <a href="{{ route('register') }}" class="btn-step-1">Signup</a>
                 </div>
             </div>
 
@@ -273,7 +273,7 @@
                     <li>Explore our different categories to expand your creative skillset.</li>
                 </ul>
 
-                <a href="{{ route('lms.register') }}" class="btn-get-started">Get Started</a>
+                <a href="{{ route('register') }}" class="btn-get-started">Get Started</a>
             </div>
         </div>
     </section>
@@ -334,7 +334,7 @@
                     course</p>
             </div>
             <div style="display: flex; align-items: center; gap: 20px;">
-                <a href="{{ route('lms.free.courses') }}"
+                <a href="{{ route('free.courses') }}"
                     style="font-size: 14px; font-weight: 700; color: #003a70; text-decoration: none;">View All</a>
                 <div class="carousel-arrows" style="display: flex; gap: 12px;">
                     <button class="arrow-btn"
@@ -356,7 +356,7 @@
         </div>
         <div class="course-cards-row"
             style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto;">
-            @for($i = 0; $i < 4; $i++) <a href="{{ route('lms.dashboard.1') }}" class="vertical-course-card"
+            @for($i = 0; $i < 4; $i++) <a href="{{ route('dashboard.1') }}" class="vertical-course-card"
                 style="text-decoration:none; color:inherit;">
                 <div class="card-image-wrap">
                     <img src="{{ asset('lms-ui/images/learning.png') }}" alt="Course">
@@ -427,7 +427,7 @@
             </div>
         </div>
         <div class="course-cards-row">
-            @for($i = 0; $i < 6; $i++) <a href="{{ route('lms.course.detail') }}" class="course-card-home-main"
+            @for($i = 0; $i < 6; $i++) <a href="{{ route('course.detail') }}" class="course-card-home-main"
                 style="text-decoration:none; color:inherit; min-width: 300px;">
                 <div class="course-card-home">
                     <div class="course-card-thumb">
@@ -476,7 +476,7 @@
         </div>
         <div class="course-cards-row"
             style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto;">
-            @for($i = 0; $i < 4; $i++) <a href="{{ route('lms.dashboard.1') }}" class="vertical-course-card"
+            @for($i = 0; $i < 4; $i++) <a href="{{ route('dashboard.1') }}" class="vertical-course-card"
                 style="text-decoration:none; color:inherit;">
                 <div class="card-image-wrap">
                     <img src="{{ asset('lms-ui/images/learning.png') }}" alt="Course">
@@ -536,7 +536,7 @@
             </div>
         </div>
         <div class="course-cards-row">
-            @for($i = 0; $i < 6; $i++) <a href="{{ route('lms.course.detail') }}" class="course-card-home-main"
+            @for($i = 0; $i < 6; $i++) <a href="{{ route('course.detail') }}" class="course-card-home-main"
                 style="text-decoration:none; color:inherit; min-width: 300px;">
                 <div class="course-card-home">
                     <div class="course-card-thumb">

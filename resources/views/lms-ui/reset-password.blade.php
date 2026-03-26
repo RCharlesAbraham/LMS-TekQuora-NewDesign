@@ -14,7 +14,7 @@
         </div>
 
         <!-- Form Section -->
-        <form action="{{ route('lms.password.update') }}" method="POST" class="auth-form" id="resetPasswordForm">
+        <form action="{{ route('password.update') }}" method="POST" class="auth-form" id="resetPasswordForm">
             @csrf
             <div class="input-group password-group">
                 <input type="password" id="new_password" name="new_password" placeholder="Enter New Password" required>
@@ -42,7 +42,7 @@
         </form>
 
         <div class="text-center" style="margin-top: 20px;">
-            <a href="{{ route('lms.login') }}" class="back-link">Back to Sign In</a>
+            <a href="{{ route('login') }}" class="back-link">Back to Sign In</a>
         </div>
     </div>
 </div>

@@ -2,39 +2,39 @@
     $activePage = $activePage ?? '';
 @endphp
 <aside class="sidebar">
-    <a href="{{ route('lms.dashboard.1') }}" class="nav-link {{ request()->routeIs('lms.dashboard.1') ? 'active' : '' }}">
+    <a href="{{ route('dashboard.1') }}" class="nav-link {{ request()->routeIs('dashboard.1') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/1.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.dashboard') }}
     </a>
-    <a href="{{ route('lms.calendar') }}" class="nav-link {{ request()->routeIs('lms.calendar') ? 'active' : '' }}">
+    <a href="{{ route('calendar') }}" class="nav-link {{ request()->routeIs('calendar') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/2.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.calendar') }}
     </a>
-    <a href="{{ route('lms.learning') }}" class="nav-link {{ request()->routeIs('lms.learning') || request()->routeIs('lms.learning.p2') ? 'active' : '' }}">
+    <a href="{{ route('learning') }}" class="nav-link {{ request()->routeIs('learning') || request()->routeIs('learning.p2') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/3.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.learning') }}
     </a>
-    <a href="{{ route('lms.courses') }}" class="nav-link {{ request()->routeIs('lms.courses') || request()->routeIs('lms.course.detail') || request()->routeIs('lms.modules') ? 'active' : '' }}">
+    <a href="{{ route('courses') }}" class="nav-link {{ request()->routeIs('courses') || request()->routeIs('course.detail') || request()->routeIs('modules') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/4.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.courses') }}
     </a>
-    <a href="{{ route('lms.quiz') }}" class="nav-link {{ request()->routeIs('lms.quiz') ? 'active' : '' }}">
+    <a href="{{ route('quiz') }}" class="nav-link {{ request()->routeIs('quiz') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/5.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.quiz') }}
     </a>
-    <a href="{{ route('lms.account.new') }}" class="nav-link {{ request()->routeIs('lms.account.new') || $activePage === 'account' ? 'active' : '' }}">
+    <a href="{{ route('account.new') }}" class="nav-link {{ request()->routeIs('account.new') || $activePage === 'account' ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/6.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.account') }}
     </a>
-    <a href="{{ route('lms.wallet.address') }}" class="nav-link {{ request()->routeIs('lms.wallet.address') ? 'active' : '' }}">
+    <a href="{{ route('wallet.address') }}" class="nav-link {{ request()->routeIs('wallet.address') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/7.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.wallet_address') }}
     </a>
-    <a href="{{ route('lms.transaction') }}" class="nav-link {{ request()->routeIs('lms.transaction') || request()->routeIs('lms.refund') ? 'active' : '' }}">
+    <a href="{{ route('transaction') }}" class="nav-link {{ request()->routeIs('transaction') || request()->routeIs('refund') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/8.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.transaction') }}
     </a>
-    <a href="{{ route('lms.payment.method') }}" class="nav-link {{ request()->routeIs('lms.payment.method') ? 'active' : '' }}">
+    <a href="{{ route('payment.method') }}" class="nav-link {{ request()->routeIs('payment.method') ? 'active' : '' }}">
         <img src="{{ asset('lms-ui/images/icons/9.png') }}" style="width: 22px; height: 22px;" alt="">
         {{ __('lms_ui::navigation.payment') }}
     </a>

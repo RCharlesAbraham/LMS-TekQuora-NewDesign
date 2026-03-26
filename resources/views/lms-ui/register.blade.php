@@ -34,7 +34,7 @@
         <!-- Title -->
         <h1 class="login-title" style="color: #333; font-size: 26px; margin-bottom: 40px; font-weight: 700;">Sign Up and Start Learning!</h1>
 
-            <form action="{{ route('lms.register.post') }}" method="POST" class="auth-form" id="registerForm" enctype="multipart/form-data">
+            <form action="{{ route('register.post') }}" method="POST" class="auth-form" id="registerForm" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Role Toggle -->
@@ -292,12 +292,12 @@
 
                 <div class="form-actions row-actions" style="margin-top: 30px; justify-content: center; gap: 20px;">
                     <button type="submit" class="btn btn-primary" style="max-width: 280px;">Save & Continue</button>
-                    <a href="{{ route('lms.login') }}" class="btn btn-secondary" style="max-width: 280px; text-decoration: none; color: #4b5563;">Cancel</a>
+                    <a href="{{ route('login') }}" class="btn btn-secondary" style="max-width: 280px; text-decoration: none; color: #4b5563;">Cancel</a>
                 </div>
             </form>
 
             <div class="signup-container" style="margin-top: 30px;">
-                <p>Already have an Account? <a href="{{ route('lms.login') }}" class="signup-link">Sign in</a></p>
+                <p>Already have an Account? <a href="{{ route('login') }}" class="signup-link">Sign in</a></p>
             </div>
         </div>
     </div>

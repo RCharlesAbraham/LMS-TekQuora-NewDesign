@@ -282,7 +282,7 @@
                     </div>
                 </div>
                 <div class="card-action">
-                    <a href="{{ route('lms.course.detail') }}" class="btn-play">
+                    <a href="{{ route('course.detail') }}" class="btn-play">
                         <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </a>
                 </div>

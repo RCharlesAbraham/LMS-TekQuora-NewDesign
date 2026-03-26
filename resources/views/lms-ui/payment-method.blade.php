@@ -353,7 +353,7 @@
                 </div>
 
                 <div class="m-btns">
-                    <button class="btn-m-pay" onclick="window.location.href='{{ route('lms.transaction') }}'">Pay $11.98</button>
+                    <button class="btn-m-pay" onclick="window.location.href='{{ route('transaction') }}'">Pay $11.98</button>
                     <button class="btn-m-cancel" onclick="closeModal()">Cancel</button>
                 </div>
             </div>

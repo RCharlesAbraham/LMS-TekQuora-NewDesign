@@ -589,11 +589,15 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         if (Auth::check()) {
-            $login = UserLogin::where('user_id', Auth::id())->where('status', 1)->latest()->first();
-            if ($login) {
-                $login->status = 0;
-                $login->logout_at = Carbon::now(Settings('active_time_zone'));
-                $login->save();
+            try {
+                $login = UserLogin::where('user_id', Auth::id())->where('status', 1)->latest()->first();
+                if ($login) {
+                    $login->status = 0;
+                    $login->logout_at = Carbon::now(Settings('active_time_zone'));
+                    $login->save();
+                }
+            } catch (\Throwable $e) {
+                \Log::warning('logout login-status update failed: ' . $e->getMessage());
             }
             if (isModuleActive('Chat')) {
                 userStatusChange(auth()->id(), 0);

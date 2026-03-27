@@ -1,2 +1,0 @@
-<div class="profile_info"><img src="<?php echo e(getProfileImage($query->image,$query->name)); ?>" alt="<?php echo e($query->name); ?>"></div>
-<?php /**PATH C:\Users\Charl\LMS-TekQuora-NewDesign\Infixlms-old\resources\views\backend\partials\_td_image.blade.php ENDPATH**/ ?>

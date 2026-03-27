@@ -1,2 +1,0 @@
-<a target="_blank" class="" href="<?php echo e($link); ?>"><?php echo e($title); ?></a>
-<?php /**PATH C:\Users\Charl\LMS-TekQuora-NewDesign\Infixlms-old\Modules\StudentSetting\Providers/../Resources/views/partials/_td_link.blade.php ENDPATH**/ ?>

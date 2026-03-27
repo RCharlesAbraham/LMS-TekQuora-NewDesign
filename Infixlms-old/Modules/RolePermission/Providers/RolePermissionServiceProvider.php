@@ -43,6 +43,16 @@ class RolePermissionServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+        
+        // Bind permission_list to the service container
+        $this->app->bind('permission_list', function () {
+            return \Modules\RolePermission\Entities\Role::with('permissions')->get();
+        });
+        
+        // Bind policy_permission_list to the service container
+        $this->app->bind('policy_permission_list', function () {
+            return \Modules\RolePermission\Entities\Role::with('permissions')->get();
+        });
     }
 
     /**

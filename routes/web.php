@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LmsUi\AccountController;
+use App\Http\Controllers\LmsUi\CombinedController;
 use App\Http\Controllers\LmsUi\DashboardController;
 use App\Http\Controllers\LmsUi\LocaleController;
 use App\Http\Middleware\SetLmsUiLocale;
@@ -19,15 +20,29 @@ $noCacheView = function (string $view) {
         ->header('Expires', 'Sat, 01 Jan 1990 00:00:00 GMT');
 };
 
+Route::get('/', function () {
+    return view('landing');
+})->name('landing');
+
+Route::get('/old', function () {
+    $oldLmsUrl = rtrim((string) config('services.old_lms.url', 'http://127.0.0.1:8001'), '/');
+    return redirect()->away($oldLmsUrl.'/');
+})->name('old');
+
+Route::get('/admin-login', function () {
+    $oldLmsUrl = rtrim((string) config('services.old_lms.url', 'http://127.0.0.1:8001'), '/');
+    return redirect()->away($oldLmsUrl.'/login');
+})->name('admin.login');
+
 Route::middleware([SetLmsUiLocale::class])->group(function () use ($noCacheView) {
 
-    Route::get('/', function () {
-        return view('lms-ui.home');
-    })->name('home');
+    Route::get('/new', function () {
+        return redirect()->route('home');
+    })->name('new');
 
     Route::get('/home', function () {
-        return redirect('/');
-    });
+        return view('lms-ui.home');
+    })->name('home');
 
     Route::post('/set-language/{locale}', [LocaleController::class, 'setLocale'])->name('locale.set');
 
@@ -60,6 +75,9 @@ Route::middleware([SetLmsUiLocale::class])->group(function () use ($noCacheView)
     Route::get('/dashboard-2', function () {
         return view('lms-ui.dashboard-2');
     })->name('dashboard.2');
+
+    Route::get('/combined', [CombinedController::class, 'index'])->name('combined.index');
+    Route::get('/combined/users', [CombinedController::class, 'users'])->name('combined.users');
 
     Route::get('/quiz', function () {
         return view('lms-ui.quiz');

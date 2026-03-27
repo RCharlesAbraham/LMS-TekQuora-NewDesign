@@ -80,6 +80,10 @@
             <p>{{ __('lms_ui::auth.no_account') ?? "Don't have an Account?" }} <a href="{{ route('register') }}" class="signup-link">{{ __('lms_ui::auth.sign_up') }}</a></p>
         </div>
 
+        <div class="signup-container" style="margin-top: 8px;">
+            <p>Admin? <a href="{{ route('admin.login') }}" class="signup-link">Login via Admin Panel</a></p>
+        </div>
+
     </div>
 </div>
 @endsection
